@@ -11,9 +11,6 @@ const firebaseConfig = {
   measurementId: "G-QSYHEFL1WT",
 };
 
-console.log("Start of index.js");
-console.log("process.env.FIREBASE_API_KEY:", process.env.FIREBASE_API_KEY);
-console.log("process.env.FIREBASE_API_KEY:", process.env.FIREBASE_API_KEY);
 initializeApp(firebaseConfig);
 
 const db = getFirestore();
