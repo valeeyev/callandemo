@@ -30,7 +30,7 @@ const arabicTeacherContainer = document.getElementById(
 
 const storage = getStorage();
 
-// Function to load image from storage
+// load image from storage
 async function loadImageFromStorage(imagePath) {
   const imageRef = ref(storage, imagePath);
 
@@ -38,7 +38,7 @@ async function loadImageFromStorage(imagePath) {
     const url = await getDownloadURL(imageRef);
     return url;
   } catch (error) {
-    console.error("Error getting image from storage:", error.message);
+    console.error("Image error:", error.message);
     return null;
   }
 }
@@ -50,7 +50,7 @@ function loadEnglishTeachers() {
         const teacher = doc.data();
         const imagePath = teacher.imageRef;
 
-        // Create a new HTML element
+        //create element
         const cardDiv = document.createElement("div");
         cardDiv.classList.add("teachercard");
         cardDiv.id = doc.id;
@@ -58,7 +58,7 @@ function loadEnglishTeachers() {
         const imageUrl = await loadImageFromStorage(imagePath);
         const imageSrc = imageUrl ? imageUrl : "../assets/teacher1.jpg";
 
-        // Create and append image element
+        // append image
         const imageDiv = document.createElement("div");
         imageDiv.classList.add("teacher_img");
         const image = document.createElement("img");
@@ -66,12 +66,12 @@ function loadEnglishTeachers() {
         image.alt = "teacher image";
         imageDiv.appendChild(image);
 
-        // Create and append name element with "teacher_name" class
+        // append name
         const nameElement = document.createElement("h1");
         nameElement.classList.add("teacher_name");
         nameElement.textContent = teacher.name;
 
-        // Create and append other elements as needed
+        // append other
         const scoreElement = document.createElement("p");
         scoreElement.classList.add("score");
         scoreElement.innerHTML = `Sertifikat: <span>${teacher.band}</span>`;
@@ -80,7 +80,7 @@ function loadEnglishTeachers() {
         buttonElement.classList.add("more_btn");
         buttonElement.innerHTML = `haqida`;
 
-        // Append all elements to the cardDiv
+        // Append to the cardDiv
         cardDiv.appendChild(imageDiv);
         cardDiv.appendChild(nameElement);
         cardDiv.appendChild(scoreElement);
@@ -102,7 +102,7 @@ function loadSupportTeachers() {
         const support_teachers = doc.data();
         const imagePath = support_teachers.imageRef;
 
-        // Create a new HTML element
+        // create  element
         const cardDiv = document.createElement("div");
         cardDiv.classList.add("teachercard");
         cardDiv.id = doc.id;
@@ -110,7 +110,7 @@ function loadSupportTeachers() {
         const imageUrl = await loadImageFromStorage(imagePath);
         const imageSrc = imageUrl ? imageUrl : "../assets/teacher1.jpg";
 
-        // Create and append image element
+        // append image
         const imageDiv = document.createElement("div");
         imageDiv.classList.add("teacher_img");
         const image = document.createElement("img");
@@ -118,12 +118,12 @@ function loadSupportTeachers() {
         image.alt = "teacher image";
         imageDiv.appendChild(image);
 
-        // Create and append name element with "teacher_name" class
+        // append name
         const nameElement = document.createElement("h1");
         nameElement.classList.add("teacher_name");
         nameElement.textContent = support_teachers.name;
 
-        // Create and append other elements as needed
+        // append other
         const scoreElement = document.createElement("p");
         scoreElement.classList.add("score");
         scoreElement.innerHTML = `Sertifikat: <span>${support_teachers.band}</span>`;
@@ -132,7 +132,7 @@ function loadSupportTeachers() {
         buttonElement.classList.add("more_btn");
         buttonElement.innerHTML = `haqida`;
 
-        // Append all elements to the cardDiv
+        // Append to the cardDiv
         cardDiv.appendChild(imageDiv);
         cardDiv.appendChild(nameElement);
         cardDiv.appendChild(scoreElement);
@@ -154,7 +154,7 @@ function loadArabicTeachers() {
         const teacher = doc.data();
         const imagePath = teacher.imgRef;
 
-        // Create a new HTML element
+        // HTML element
         const cardDiv = document.createElement("div");
         cardDiv.classList.add("teachercard");
         cardDiv.id = doc.id;
@@ -162,7 +162,7 @@ function loadArabicTeachers() {
         const imageUrl = await loadImageFromStorage(imagePath);
         const imageSrc = imageUrl ? imageUrl : "../assets/teacher1.jpg";
 
-        // Create and append image element
+        // append image
         const imageDiv = document.createElement("div");
         imageDiv.classList.add("teacher_img");
         const image = document.createElement("img");
@@ -170,12 +170,12 @@ function loadArabicTeachers() {
         image.alt = "teacher image";
         imageDiv.appendChild(image);
 
-        // Create and append name element with "teacher_name" class
+        // append name
         const nameElement = document.createElement("h1");
         nameElement.classList.add("teacher_name");
         nameElement.textContent = teacher.ism;
 
-        // Create and append other elements as needed
+        // append other
         const scoreElement = document.createElement("p");
         scoreElement.classList.add("score");
         scoreElement.innerHTML = `Sertifikat: <span>${teacher.band}</span>`;
@@ -187,14 +187,14 @@ function loadArabicTeachers() {
         buttonElement.classList.add("more_btn");
         buttonElement.innerHTML = `haqida`;
 
-        // Append all elements to the cardDiv
+        // append to cardDiv
         cardDiv.appendChild(imageDiv);
         cardDiv.appendChild(nameElement);
         cardDiv.appendChild(scoreElement);
         cardDiv.appendChild(experienceElement);
         cardDiv.append(buttonElement);
 
-        // Append cardDiv to the container
+        // append cardDiv to container
         arabicTeacherContainer.appendChild(cardDiv);
       }
     })
@@ -203,7 +203,7 @@ function loadArabicTeachers() {
     });
 }
 
-// Call the functions to load teachers into their respective containers
+// Call the functions
 loadEnglishTeachers();
 loadArabicTeachers();
 loadSupportTeachers();
